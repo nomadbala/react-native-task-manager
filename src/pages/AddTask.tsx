@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useTasks } from "../provider/TaskProvider";
-import AlertError from "../exception_handler/ErrorAlert";
+import AlertError from "../exceptions/ErrorAlert";
 import { Pressable, Text, TextInput, View } from "react-native";
 
 const AddTask = ({ navigation }: any) => {

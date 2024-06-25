@@ -1,4 +1,3 @@
-// Home.tsx
 import React from "react";
 import { StyleSheet, FlatList, Pressable, Text, View } from "react-native";
 import { useTasks } from "../provider/TaskProvider";
@@ -14,7 +13,6 @@ const Home = ({ navigation }: any) => {
     markTaskCompleted(id);
   };
 
-  // Функция для рендеринга элемента списка задач
   const renderTaskItem = ({ item }: { item: Task }) => (
     <View style={styles.block}>
       <View style={styles.taskInfo}>
@@ -22,14 +20,17 @@ const Home = ({ navigation }: any) => {
         {item.description && <Text>{item.description}</Text>}
         <Text>Status: {item.status ? "Completed" : "Pending"}</Text>
       </View>
-      <Pressable onPress={() => removeTask(item.id)}>
-        <Text>Remove task</Text>
-      </Pressable>
-      {!item.status && (
-        <Pressable onPress={() => toggleTaskStatus(item.id)}>
-          <Text>Mark completed</Text>
+      <View>
+        <Pressable onPress={() => removeTask(item.id)}>
+          <Text>Remove task</Text>
         </Pressable>
-      )}
+        {!item.status && (
+          <Pressable onPress={() => toggleTaskStatus(item.id)}>
+            <Text>Mark completed</Text>
+          </Pressable>
+        )}
+        <View></View>
+      </View>
     </View>
   );
 
